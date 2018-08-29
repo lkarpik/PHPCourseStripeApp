@@ -7,27 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
+    <h2 class="my-4 text-center">Intro to PHP payment app</h2>
+        <form action="charge.php" method="post" id="payment-form">
+        <div class="form-row">
+            <input type="text" name="first_name" class="form-control mb-3 StripeElement StipeElement--empty" placeholder="First name">
+            <input type="text" name="last_name" class="form-control mb-3 StripeElement StipeElement--empty" placeholder="Last name">
+            <input type="email" name="email" class="form-control mb-3 StripeElement StipeElement--empty" placeholder="E-mail adress">
+            <div id="card-element" class="form-control">
+            <!-- A Stripe Element will be inserted here. -->
+            </div>
 
-    <form action="/charge" method="post" id="payment-form">
-    <div class="form-row">
-        <label for="card-element">
-        Credit or debit card
-        </label>
-        <div id="card-element">
-        <!-- A Stripe Element will be inserted here. -->
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
         </div>
 
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
+        <button>Submit Payment</button>
+
+        </form>    
     </div>
 
-    <button>Submit Payment</button>
-
-    </form>    
-
-<script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/charge.js"></script>
 
 </body>
 </html>
